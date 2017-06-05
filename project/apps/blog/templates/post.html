@@ -1,0 +1,40 @@
+{% extends "home.html" %}
+
+
+{% block content %}
+
+    {% for post in posts %}
+        < <div id="main">
+
+    <!-- Featured Post -->
+    <article class="post featured">
+        <header class="major">
+
+            <span class="date">{{ post.public_date | date:"d E Y"|lower }}</span>
+            <h2><a href="./posts/{{ post.index_url }}/">{{ post.title }}</a></h2>
+            {% ifequal  post.media '' %}
+                <!-- -->
+            {% else %}
+                <a href="#" class="image main"><img src="./{{ post.media }}" alt="" /></a>
+            {% endifequal %}
+            <p>{{ post.description|linebreaksbr }}</p>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </header>
+        <ul class="actions">
+            <div class="likely">
+                  <div class="twitter">Твитнуть</div>
+                  <div class="facebook">Поделиться</div>
+                  <div class="gplus">Плюсануть</div>
+                  <div class="vkontakte">Поделиться</div>
+                  <div class="telegram">Отправить</div>
+                  <div class="odnoklassniki">Класснуть</div>
+                  <div class="linkedin">Линкануть</div>
+                  <div class="pinterest" data-media="i/pinnable.jpg">Запинить</div>
+            </div>
+
+        </ul>
+    </article>
+    {% endfor %}
+
+{% endblock content %}
+

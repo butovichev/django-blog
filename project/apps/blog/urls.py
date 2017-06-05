@@ -1,9 +1,10 @@
 from django.conf.urls import url
 
-from .views import Index, Post1
+from .views import Index, PostView, PostsList
 
 urlpatterns = [
     url(r'^$', Index.as_view(), name='home'),
-    url(r'^posts/(?P<title>[-\w]+)/$', Post1.as_view(), name='posts1'),
+    url(r'^posts/(?P<index_url>[-\w]+)/$', PostView.as_view()),
+    url(r'^posts/page/(?P<page>\d+)/$', PostsList.as_view()),
 
 ]

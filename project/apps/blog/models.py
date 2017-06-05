@@ -3,7 +3,7 @@ from django.db.models import (
     ForeignKey,
     CharField,
     TextField,
-    DateTimeField,
+    DateField,
     ImageField,
     ManyToManyField,
 )
@@ -21,11 +21,15 @@ class Post(Model):
 
     title = CharField(max_length=200)
 
+    index_url = CharField(max_length=256, blank=True)
+
+    description = TextField(blank=True)
+
     text = TextField()
 
-    created_date = DateTimeField(default=timezone.now)
+    created_date = DateField(default=timezone.now)
 
-    public_date = DateTimeField(blank=True, null=True)
+    public_date = DateField(blank=True)
 
     status = CharField(choices=STATUS_CHOICES, default='draft', max_length=10)
 

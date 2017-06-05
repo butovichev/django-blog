@@ -1,0 +1,50 @@
+{% extends "home.html" %}
+
+
+{% block content %}
+    < <div id="main">
+    {% for post in posts.data %}
+    
+
+    <!-- Featured Post -->
+    <article class="post featured">
+        <header class="major">
+
+            <span class="date">{{ post.public_date | date:"d E Y"|lower }}</span>
+            <h2><a href="/posts/{{ post.index_url }}/">{{ post.title }}</a></h2>
+            {% ifequal  post.media '' %}
+                <!-- -->
+            {% else %}
+                <a href="#" class="image main"><img src="./{{ post.media }}" alt="" /></a>
+            {% endifequal %}
+            <p>{{ post.description|linebreaksbr }}</p>
+        </header>
+        <ul class="actions">
+            <li><a href="/posts/{{ post.index_url }}/" class="button big">Читать полностью</a></li>
+        </ul>
+    </article>
+    {% endfor %}
+
+    
+        <!-- Footer -->
+        <footer>
+            <div class="pagination">
+            {% for number in posts.pagination.range %}
+                <!--<a href="#" class="previous">Prev</a>-->
+                {% if number == posts.pagination.current_page %}
+                   <a href="#" class="page active">{{ number }}</a>
+                {% else %}
+                <a href="/posts/page/{{ number }}/" class="page"> {{ number }}</a>
+
+                {% endif %}
+                
+                <!--<span class="extra">&hellip;</span>-->
+            {% endfor %}
+            </div>
+        </footer>
+
+    </div>
+        
+
+{% endblock content %}
+
