@@ -15,7 +15,7 @@
             {% ifequal  post.media '' %}
                 <!-- -->
             {% else %}
-                <a href="#" class="image main"><img src="./{{ post.media }}" alt="" /></a>
+                <a href="#" class="image main"><img src="/{{ post.media }}" alt="" /></a>
             {% endifequal %}
             <p>{{ post.description|linebreaksbr }}</p>
             <p>{{ post.text|linebreaksbr }}</p>
@@ -28,11 +28,15 @@
                   <div class="vkontakte">Поделиться</div>
                   <div class="telegram">Отправить</div>
                   <div class="odnoklassniki">Класснуть</div>
-                  <div class="linkedin">Линкануть</div>
-                  <div class="pinterest" data-media="i/pinnable.jpg">Запинить</div>
+                  <!-- <div class="linkedin">Линкануть</div> -->
+                  <!-- <div class="pinterest" data-media="i/pinnable.jpg">Запинить</div> -->
             </div>
 
         </ul>
+          {% load disqus_tags %}
+          {% disqus_dev %}
+
+          {% disqus_show_comments %}
     </article>
     {% endfor %}
 

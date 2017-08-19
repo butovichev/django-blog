@@ -3,3 +3,4 @@ psycopg2
 Pillow
 pytest-django
 faker
+django-disqus

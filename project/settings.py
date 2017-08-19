@@ -38,7 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # apps
+    'django.contrib.sites',
+    # apps,
+    'disqus',
     'project.apps.blog',
 )
 
@@ -94,6 +96,12 @@ DATABASES = {
         'PORT': 5432
     }
 }
+
+SITE_ID = 1
+
+# disqus
+DISQUS_API_KEY = 'AjuSAor2QcbeD7pxrgCILrskrkUR6lWXF80N6umQJ68JLKYbeYxieYNzLS6X3gCk'
+DISQUS_WEBSITE_SHORTNAME = 'butovichev'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
